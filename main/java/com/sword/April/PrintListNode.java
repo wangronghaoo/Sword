@@ -13,11 +13,11 @@ public class PrintListNode {
      * 给定一个链表的head 从尾部开始打印链表
      * [1,4,5] return [5,4,1]
      */
-    static class ListNode{
-        int val;
-        ListNode next;
+    public static class ListNode{
+        public int val;
+        public ListNode next;
 
-        ListNode(int val){
+        public ListNode(int val){
             this.val = val;
         }
     }
