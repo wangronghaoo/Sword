@@ -10,21 +10,23 @@ public class Merge {
      * @param args
      */
     public static void main(String[] args) {
-        int[] nums1 = {1,2,3,0,0,0};
-        int[] nums2 = {2,5,6};
+        int[] nums1 = {4,5,6,0,0,0};
+        int[] nums2 = {1,2,3};
         merge(nums1,3,nums2,3);
         for (int num : nums1) {
             System.out.println(num);
         }
     }
-    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+    private static void merge(int[] nums1, int m, int[] nums2, int n) {
         //将nums2合并到nums1,然后对nums1进行排序
         System.arraycopy(nums2,0,nums1,m, n);
         for(int i = 0; i < nums1.length - 1;i++ ){
-            if(nums1[i] >= nums1[i + 1]){
-                int temp = nums1[i];
-                nums1[i] = nums1[i + 1];
-                nums1[i + 1] = temp;
+            for(int j = 0; j < nums1.length - i - 1;j++){
+                if (nums1[j] > nums1[j + 1]) {
+                    int temp = nums1[j];
+                    nums1[j] = nums1[j + 1];
+                    nums1[j + 1] = temp;
+                }
             }
         }
     }
