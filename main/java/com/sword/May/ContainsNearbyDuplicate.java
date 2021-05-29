@@ -1,5 +1,8 @@
 package main.java.com.sword.May;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Author: WangRongHao
  * @Date: 2021/5/29
@@ -13,6 +16,7 @@ public class ContainsNearbyDuplicate {
     public static void main(String[] args) {
         int[] nums = {1,2,3,1,2,3};
         System.out.println(containsNearbyDuplicate(nums,2));
+        System.out.println(containsNearbyDuplicate2(nums,2));
     }
 
     private static boolean containsNearbyDuplicate(int[] nums, int k) {
@@ -32,6 +36,17 @@ public class ContainsNearbyDuplicate {
                 i++;
                 j = nums.length - 1;
             }
+        }
+        return false;
+    }
+
+    private static boolean containsNearbyDuplicate2(int[] nums, int k) {
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])){
+                if (i - map.get(nums[i]) <= k) return true;
+            }
+            map.put(nums[i],i);
         }
         return false;
     }
