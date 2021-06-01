@@ -9,7 +9,7 @@ public class FindMaxConsecutiveOnes {
      * 给定一个二进制数组， 计算其中最大连续 1 的个数。
      */
     public static void main(String[] args) {
-        int[] nums = {1,1,1,1,1,0,1,1,0,1,1,1};
+        int[] nums = {1,1,1,1,1,0,1,1,1,0,1,1,1,1};
         System.out.println(findMaxConsecutiveOnes(nums));
     }
 
@@ -23,6 +23,6 @@ public class FindMaxConsecutiveOnes {
                 count = 0;
             }
         }
-        return max;
+        return Math.max(max,count);
     }
 }
